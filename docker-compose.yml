@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  bitcoin-price-service:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - UPDATE_INTERVAL_MS=10000
+      - SERVICE_COMMISSION=0.0001
+      - BINANCE_API_URL=https://api.binance.com
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

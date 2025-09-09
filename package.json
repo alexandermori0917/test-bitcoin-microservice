@@ -1,0 +1,29 @@
+{
+  "name": "bitcoin-price-microservice",
+  "version": "1.0.0",
+  "description": "A microservice that returns Bitcoin prices with configurable commission",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "watch": "tsc -w",
+    "frontend": "cd frontend && python -m http.server 3001"
+  },
+  "keywords": ["bitcoin", "price", "microservice", "binance", "api"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.17",
+    "@types/node": "^20.8.0",
+    "typescript": "^5.2.2",
+    "ts-node": "^10.9.1"
+  }
+}
